@@ -1,21 +1,15 @@
-import {View, Text, TextInput,
-  Image, StyleSheet, TouchableOpacity} from 'react-native';
-import { useState } from 'react';
 import {useRouter} from 'expo-router';
+import {useState} from 'react';
 import { FontAwesome } from '@expo/vector-icons';
+import {View, Text, StyleSheet, TouchableOpacity, Image, TextInput} from 'react-native';
 
 export default function Signin(){
-  const [password, setPassword] = useState<string>("");
-  const [userData, setUserData] = useState<any>(null);
-  const [email, setEmail] = useState<string>("");
-  const router = useRouter();
 
-  const handleguest = () => {
-    router.replace('/(tabs)/main')
-  }
-  const handlesignup = () =>{
-    router.push('/signup')
-  }
+    const [firstname, setFirstName] = useState<string>("");
+    const [Lastname, setLastname] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [userData, setUserData] = useState<any>(null);
+    const [email, setEmail] = useState<string>("");
     return(
         <View style={styles.container}>
             <Image source={require("../assets/images/Component2.png")} style={styles.focuslogo} />
@@ -43,27 +37,21 @@ export default function Signin(){
           </View>
           <View style={styles.signcontainer}>
           <View style={styles.buttoncontainer}>
-          <TouchableOpacity style={[styles.button, {backgroundColor: '#007582ff', borderColor: '#007582ff', }]}>
-            <Text style={styles.signin}>Sign In</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handlesignup}>
+          <TouchableOpacity style={styles.button}>
             <Text style={styles.signin}>Sign Up</Text>
           </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.guest} onPress={handleguest}>
-            <Text style={styles.signin}>Continue as a guest</Text>
-          </TouchableOpacity>
           </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: 'flex-start',
-    gap: 25
+    container:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: 'flex-start',
+        gap: 25
     },
     focuslogo: {
     width: "90%",
@@ -124,19 +112,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10
   },
-  guest:{
-    backgroundColor: "#363636ff",
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: 'center',
-    borderWidth: 7,
-    borderColor: '#363636ff',
-    width: "130%"
-  },
+
   signcontainer:{
     gap: 25,
     justifyContent: 'center',
     alignItems: 'center',
     width: "34%"
   }
+
 })
