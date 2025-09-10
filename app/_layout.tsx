@@ -1,10 +1,10 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { Stack } from 'expo-router';
 
 export default function Layout(){
   return (
   <Stack>
     <Stack.Screen name='signin' options={{headerShown: false}}/>
+    <Stack.Screen name='(tabs)'options={{headerShown: false}}/>
   </Stack>
   );
 }
