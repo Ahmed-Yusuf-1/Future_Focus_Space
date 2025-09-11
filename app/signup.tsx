@@ -5,10 +5,8 @@ import {View, Text, StyleSheet, TouchableOpacity, Image, TextInput} from 'react-
 
 export default function Signin(){
 
-    const [firstname, setFirstName] = useState<string>("");
-    const [Lastname, setLastname] = useState<string>("");
+    const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const [userData, setUserData] = useState<any>(null);
     const [email, setEmail] = useState<string>("");
     return(
         <View style={styles.container}>
@@ -18,22 +16,13 @@ export default function Signin(){
 
 
             <View style={styles.nameinput}>
-            <View style={styles.firstname}>
+            <View style={styles.username}>
             <FontAwesome name='user' size={13} color={'#007582ff'}  style={styles.icons}/>
           <TextInput
             style={styles.input}
-            placeholder="First Name"
-            value={email}
-            onChangeText={setEmail}
-          />
-          </View>
-          <View style={styles.firstname}>
-          <FontAwesome name='user' size={13} color={'#007582ff'}  style={styles.icons}/>
-          <TextInput
-            style={styles.input}
-            placeholder="Last Name"
-            value={email}
-            onChangeText={setEmail}
+            placeholder="Username"
+            value={username}
+            onChangeText={setUsername}
           />
           </View>
           
@@ -120,13 +109,13 @@ const styles = StyleSheet.create({
     marginLeft: 8
   },
   button: {
-    backgroundColor: "#363636ff",
-    borderRadius: 5,
+    backgroundColor: "#007582ff",
+    borderRadius: 15,
     width: '100%',
     alignItems: "center",
     borderColor: "#363636ff",
     justifyContent: 'center',
-    borderWidth: 5,
+    height: "100%"
   },
   signin: {
     color: "white",
@@ -135,28 +124,29 @@ const styles = StyleSheet.create({
   },
   buttoncontainer:{
     flexDirection: 'row',
-    gap: 10
+    gap: 59
   },
 
   signcontainer:{
     gap: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    width: "34%"
+    width: "40%",
+    height: "5%"
   },
   nameinput:{
     flexDirection: 'row',
     gap: 10,
-    width: '100%'
   },
-  firstname:{
+  username:{
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 0.3,
     borderColor: "#19a0ae",
     borderRadius: 10,
     backgroundColor: 'white',
-    width: '47%'
+    width: '100%',
+    resizeMode: 'contain',
   }
 
 })

@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "#363636ff",
     justifyContent: 'center',
-    borderWidth: 5,
+    height: "100%"
   },
   signin: {
     color: "white",
@@ -129,14 +129,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: "center",
     justifyContent: 'center',
-    borderWidth: 7,
-    borderColor: '#363636ff',
-    width: "130%"
+    width: "130%",
+    height: "75%"
   },
   signcontainer:{
     gap: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    width: "34%"
+    width: "34%",
+    height: '5%',
+    marginTop: 30
   }
 })
