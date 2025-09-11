@@ -22,7 +22,7 @@ export default function Signin(){
             <Text style={styles.signtext}>Sign Into Your Account</Text>
           <View style={styles.textinputcontainer}>
         <View style={styles.firstinputcontainer}>
-            <FontAwesome name='user' size={15} color={'#007582ff'}  style={styles.icons}/>
+            <FontAwesome name='envelope' size={13} color={'#007582ff'}  style={styles.icons}/>
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   firstinputcontainer:{
         flexDirection: 'row',
-        borderWidth: 0.6,
+        borderWidth: 0.3,
         borderColor: "#19a0ae",
         alignItems: 'center',
         borderRadius: 10,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   secondinputcontainer:{
         flexDirection: 'row',
-        borderWidth: 0.6,
+        borderWidth: 0.3,
         borderColor: "#19a0ae",
         alignItems: 'center',
         borderRadius: 10,

@@ -13,10 +13,35 @@ export default function Signin(){
     return(
         <View style={styles.container}>
             <Image source={require("../assets/images/Component2.png")} style={styles.focuslogo} />
-            <Text style={styles.signtext}>Sign Into Your Account</Text>
+            <Text style={styles.signtext}>Sign up for a new account</Text>
           <View style={styles.textinputcontainer}>
+
+
+            <View style={styles.nameinput}>
+            <View style={styles.firstname}>
+            <FontAwesome name='user' size={13} color={'#007582ff'}  style={styles.icons}/>
+          <TextInput
+            style={styles.input}
+            placeholder="First Name"
+            value={email}
+            onChangeText={setEmail}
+          />
+          </View>
+          <View style={styles.firstname}>
+          <FontAwesome name='user' size={13} color={'#007582ff'}  style={styles.icons}/>
+          <TextInput
+            style={styles.input}
+            placeholder="Last Name"
+            value={email}
+            onChangeText={setEmail}
+          />
+          </View>
+          
+          </View>
+
+
         <View style={styles.firstinputcontainer}>
-            <FontAwesome name='user' size={15} color={'#007582ff'}  style={styles.icons}/>
+            <FontAwesome name='envelope' size={13} color={'#007582ff'}  style={styles.icons}/>
           <TextInput
             style={styles.input}
             placeholder="Email"
@@ -76,7 +101,7 @@ const styles = StyleSheet.create({
   },
   firstinputcontainer:{
         flexDirection: 'row',
-        borderWidth: 0.6,
+        borderWidth: 0.3,
         borderColor: "#19a0ae",
         alignItems: 'center',
         borderRadius: 10,
@@ -85,7 +110,7 @@ const styles = StyleSheet.create({
   },
   secondinputcontainer:{
         flexDirection: 'row',
-        borderWidth: 0.6,
+        borderWidth: 0.3,
         borderColor: "#19a0ae",
         alignItems: 'center',
         borderRadius: 10,
@@ -118,6 +143,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: "34%"
+  },
+  nameinput:{
+    flexDirection: 'row',
+    gap: 10,
+    width: '100%'
+  },
+  firstname:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 0.3,
+    borderColor: "#19a0ae",
+    borderRadius: 10,
+    backgroundColor: 'white',
+    width: '47%'
   }
 
 })
