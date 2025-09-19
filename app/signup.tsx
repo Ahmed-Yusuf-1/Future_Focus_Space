@@ -1,4 +1,4 @@
-import {router, useRouter} from 'expo-router';
+import {router} from 'expo-router';
 import {useState} from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import {View, Text, StyleSheet, TouchableOpacity, Image, TextInput} from 'react-native';
@@ -8,7 +8,6 @@ import { emailregex, passwordregex } from '@/components/regex';
 
 export default function SignUp(){
 
-    const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [error, setError] = useState("");
@@ -45,15 +44,6 @@ export default function SignUp(){
 
             {error ? <Text style={{color: 'darkred'}}>{error}</Text> : null}
             <View style={styles.nameinput}>
-            <View style={styles.username}>
-            <FontAwesome name='user' size={13} color={'#007582ff'}  style={styles.icons}/>
-          <TextInput
-            style={styles.input}
-            placeholder="Username"
-            value={username}
-            onChangeText={setUsername}
-          />
-          </View>
           
           </View>
 
