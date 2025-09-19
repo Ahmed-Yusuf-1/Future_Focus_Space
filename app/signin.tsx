@@ -3,11 +3,15 @@ import {View, Text, TextInput,
 import { useState } from 'react';
 import {useRouter} from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import{ auth} from '../firebase/firebaseConfig';
+import { emailregex, passwordregex } from '@/components/regex';
 
 export default function Signin(){
   const [password, setPassword] = useState<string>("");
   const [userData, setUserData] = useState<any>(null);
   const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleguest = () => {
@@ -16,11 +20,38 @@ export default function Signin(){
   const handlesignup = () =>{
     router.push('/signup')
   }
+  const handlesignin = async () => {
+    if(!email || !emailregex.test(email)){
+      setError("Invalid Email")
+      return;
+    }
+    if (!password){
+      setError("Invalid password")
+      return;
+    }
+    else if(password.length < 8){
+      setError("Password must be of length 8")
+      return;
+    }
+    else if(!passwordregex.test(password)){
+      setError("Password must contain Special Character, a Number and a Capital")
+      return;
+    }
+    try{
+      await signInWithEmailAndPassword(auth, email, password)
+      router.replace('/(tabs)/main')
+    } catch(err){
+      setError("Failed to Sign in, Check your credentials.");
+    }
+   
+  }
     return(
         <View style={styles.container}>
             <Image source={require("../assets/images/Component2.png")} style={styles.focuslogo} />
             <Text style={styles.signtext}>Sign Into Your Account</Text>
+              
           <View style={styles.textinputcontainer}>
+            {error ? <Text style={{ color: 'darkred'}}>{error}</Text> : null}
         <View style={styles.firstinputcontainer}>
             <FontAwesome name='envelope' size={13} color={'#007582ff'}  style={styles.icons}/>
           <TextInput
@@ -43,7 +74,7 @@ export default function Signin(){
           </View>
           <View style={styles.signcontainer}>
           <View style={styles.buttoncontainer}>
-          <TouchableOpacity style={[styles.button, {backgroundColor: '#007582ff', borderColor: '#007582ff', }]}>
+          <TouchableOpacity onPress={handlesignin} style={[styles.button, {backgroundColor: '#007582ff', borderColor: '#007582ff', }]}>
             <Text style={styles.signin}>Sign In</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handlesignup}>
