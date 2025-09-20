@@ -1,18 +1,45 @@
 import {View, Text, TextInput,
   Image, StyleSheet, TouchableOpacity} from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useRouter} from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import{ auth} from '../firebase/firebaseConfig';
 import { emailregex, passwordregex } from '@/components/regex';
+import {useAuthRequest} from 'expo-auth-session/providers/google';
 
 export default function Signin(){
   const [password, setPassword] = useState<string>("");
-  const [userData, setUserData] = useState<any>(null);
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState("");
   const router = useRouter();
+
+  const [request, response, promptAsync] = useAuthRequest({
+    iosClientId: '',
+    androidClientId: '324710914967-fjfamhom8glue4lq33vjgis423ur7ohp.apps.googleusercontent.com',
+    webClientId: '324710914967-r053beht0omtkipfkrfca1e5q5ikj8qs.apps.googleusercontent.com', 
+    redirectUri: 'https://auth.expo.io/@ahmed100th/Future_Focus_Space',
+  });
+
+  useEffect(() => {
+    const handleSignIn = async () =>{
+      try{
+      if(response?.type === 'success'){
+      const { id_token } = response.params;
+      const credentials = GoogleAuthProvider.credential(id_token);
+      await signInWithCredential(auth, credentials);
+      router.replace('/(tabs)/main');
+    }
+  } catch(error) {
+        console.error('Firebase sign-in error:', error);
+    }
+  }
+  handleSignIn();
+},[response]);
+
+  const handleGoogleSignIn = () =>{
+    promptAsync();
+  };
 
   const handleguest = () => {
     router.replace('/(tabs)/main')
@@ -84,6 +111,9 @@ export default function Signin(){
           <TouchableOpacity style={styles.guest} onPress={handleguest}>
             <Text style={styles.signin}>Continue as a guest</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.guest} onPress={handleGoogleSignIn}>
+            <Text style={styles.signin}>Sign In with Google</Text>
+          </TouchableOpacity>
           </View>
         </View>
     );
@@ -94,7 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: 'flex-start',
-    gap: 25
+    gap: 20,
     },
     focuslogo: {
     width: "90%",
@@ -144,7 +174,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "#363636ff",
     justifyContent: 'center',
-    height: "100%"
+    height: "100%",
   },
   signin: {
     color: "white",
@@ -153,7 +183,7 @@ const styles = StyleSheet.create({
   },
   buttoncontainer:{
     flexDirection: 'row',
-    gap: 10
+    gap: 10,
   },
   guest:{
     backgroundColor: "#363636ff",
@@ -164,11 +194,11 @@ const styles = StyleSheet.create({
     height: "75%"
   },
   signcontainer:{
-    gap: 25,
+    gap: 20,
     justifyContent: 'center',
     alignItems: 'center',
     width: "34%",
     height: '5%',
-    marginTop: 30
+    marginTop: 50
   }
 })
