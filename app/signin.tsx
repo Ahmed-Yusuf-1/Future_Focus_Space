@@ -17,8 +17,8 @@ export default function Signin(){
   const [request, response, promptAsync] = useAuthRequest({
     iosClientId: '',
     androidClientId: '324710914967-fjfamhom8glue4lq33vjgis423ur7ohp.apps.googleusercontent.com',
-    webClientId: '324710914967-r053beht0omtkipfkrfca1e5q5ikj8qs.apps.googleusercontent.com', 
-    redirectUri: 'https://auth.expo.io/@ahmed100th/Future_Focus_Space',
+    webClientId: '324710914967-sicu98bsg9v4i9qtjrgm8tlovg4obj77.apps.googleusercontent.com',
+    redirectUri: "https://auth.expo.io/@ahmed100th/Future-Focus-Space",
   });
 
   useEffect(() => {
