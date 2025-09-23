@@ -15,7 +15,7 @@ export default function Signin(){
   const router = useRouter();
 
   const [request, response, promptAsync] = useAuthRequest({
-    iosClientId: '',
+    iosClientId: '324710914967-jjmjdq4iia0jrmsq8m6eluvius4h685j.apps.googleusercontent.com',
     androidClientId: '324710914967-fjfamhom8glue4lq33vjgis423ur7ohp.apps.googleusercontent.com',
     webClientId: '324710914967-sicu98bsg9v4i9qtjrgm8tlovg4obj77.apps.googleusercontent.com',
     redirectUri: "https://auth.expo.io/@ahmed100th/Future-Focus-Space",
@@ -49,11 +49,11 @@ export default function Signin(){
   }
   const handlesignin = async () => {
     if(!email || !emailregex.test(email)){
-      setError("Invalid Email")
+      setError("Email is Incorrect, Check Your Credentials.")
       return;
     }
     if (!password){
-      setError("Invalid password")
+      setError("Password is Incorrect, Check Your Credentials.")
       return;
     }
     else if(password.length < 8){
@@ -61,7 +61,7 @@ export default function Signin(){
       return;
     }
     else if(!passwordregex.test(password)){
-      setError("Password must contain Special Character, a Number and a Capital")
+      setError("Password Must Contain Special Character, a Number and a Capital Letter")
       return;
     }
     try{

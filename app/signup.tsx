@@ -14,11 +14,11 @@ export default function SignUp(){
 
     const handleSignUp = async () => {
         if (!email || !emailregex.test(email)){
-          setError("Invalid Email");
+          setError("Email is Incorrect, Check Your Credentials.");
           return;
         }
         if(!password){
-          setError("Invalid Password")
+          setError("Password is Incorrect, Check Your Credentials.")
           return;
         }
         else if(password.length < 8){
