@@ -16,8 +16,8 @@ export default function Signin(){
 
   const [request, response, promptAsync] = useAuthRequest({
     iosClientId: '324710914967-jjmjdq4iia0jrmsq8m6eluvius4h685j.apps.googleusercontent.com',
-    androidClientId: '324710914967-fjfamhom8glue4lq33vjgis423ur7ohp.apps.googleusercontent.com',
-    webClientId: '324710914967-sicu98bsg9v4i9qtjrgm8tlovg4obj77.apps.googleusercontent.com',
+    androidClientId: '324710914967-b4fferamcdihsql6ct9hkolt4778rtgm.apps.googleusercontent.com',
+    webClientId: '324710914967-1k6aeppu0ddffbris6v4k4o69jjaab02.apps.googleusercontent.com',
     redirectUri: "https://auth.expo.io/@ahmed100th/Future-Focus-Space",
   });
 
