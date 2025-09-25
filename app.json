@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Future_Focus_Space",
-    "slug": "Future-Focus-Space",
+    "slug": "Future_Focus_Space",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,11 +12,13 @@
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-      
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ahmed.focusSpace"
+      "bundleIdentifier": "com.ahmed.focusSpace",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.ahmed.focusSpace",
