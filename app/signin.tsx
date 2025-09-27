@@ -99,22 +99,23 @@ export default function Signin(){
           />
           </View>
           </View>
-          <View style={styles.signcontainer}>
-          <View style={styles.buttoncontainer}>
           <TouchableOpacity onPress={handlesignin} style={[styles.button, {backgroundColor: '#007582ff', borderColor: '#007582ff', }]}>
             <Text style={styles.signin}>Sign In</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handlesignup}>
-            <Text style={styles.signin}>Sign Up</Text>
+          <Text style={{marginBottom: 30}}>Don't have an account? 
+            <TouchableOpacity onPress={handlesignup}>
+              <Text style={{color: '#007582ff', textDecorationLine: 'underline'}}> Sign Up</Text>
+            </TouchableOpacity>
+          </Text>
+          <TouchableOpacity onPress={handleguest}>
+            <Text style={{color: '#007582ff', textDecorationLine: 'underline'}}>
+              Continue as a Guest
+            </Text>
           </TouchableOpacity>
-          </View>
-          <TouchableOpacity style={styles.guest} onPress={handleguest}>
-            <Text style={styles.signin}>Continue as a guest</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.guest} onPress={handleGoogleSignIn}>
+          <TouchableOpacity style={styles.google} onPress={handleGoogleSignIn}>
+            <FontAwesome name='google' size={21} color={'red'}/>
             <Text style={styles.signin}>Sign In with Google</Text>
           </TouchableOpacity>
-          </View>
         </View>
     );
 }
@@ -169,12 +170,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#363636ff",
-    borderRadius: 5,
-    width: '100%',
+    borderRadius: 15,
+    width: '50%',
     alignItems: "center",
     borderColor: "#363636ff",
     justifyContent: 'center',
-    height: "100%",
+    height: "4%",
   },
   signin: {
     color: "white",
@@ -185,13 +186,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  guest:{
+  google:{
+    flexDirection: 'row',
     backgroundColor: "#363636ff",
-    borderRadius: 5,
+    borderRadius: 15,
+    width: "50%",
+    height: "4%",
     alignItems: "center",
-    justifyContent: 'center',
-    width: "130%",
-    height: "75%"
+    justifyContent: 'space-evenly',
   },
   signcontainer:{
     gap: 20,
@@ -200,5 +202,6 @@ const styles = StyleSheet.create({
     width: "34%",
     height: '5%',
     marginTop: 50
-  }
+  }, 
+
 })
