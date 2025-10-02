@@ -112,10 +112,10 @@ export default function Signin(){
               Continue as a Guest
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.google} onPress={handleGoogleSignIn}>
+          {/* <TouchableOpacity style={styles.google} onPress={handleGoogleSignIn}>
             <FontAwesome name='google' size={21} color={'red'}/>
             <Text style={styles.signin}>Sign In with Google</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
     );
 }
