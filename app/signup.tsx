@@ -53,6 +53,7 @@ export default function SignUp(){
           <TextInput
             style={styles.input}
             placeholder="Email"
+            placeholderTextColor={'gray'}
             value={email}
             onChangeText={setEmail}
           />
@@ -62,6 +63,7 @@ export default function SignUp(){
           <TextInput
             style={styles.input}
             placeholder="Password"
+            placeholderTextColor={'gray'}
             value={password}
             onChangeText={setPassword}
             secureTextEntry={true}
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 9,
     width: "90%",
+    color: 'black'
   },
   firstinputcontainer:{
         flexDirection: 'row',
